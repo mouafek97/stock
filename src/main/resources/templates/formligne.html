@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>ajouter une ligne</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+<div class="container mt-8 ">
+<div class="card">
+<div class="card-header"> ajouter une ligne</div> 
+<div class="card-body">
+<form     th:action="@{/saveligne}" method="post" >
+   
+   
+       <div class="form-group">
+         <label class="control-label">quantite</label>
+         <input class="form-control" type="text" name="qteCmd">
+       </div>
+        <div class="form-group">
+         <label class="control-label">prix  </label>
+         <input class="form-control" type="text" name="prixCmd">
+       </div>
+    
+       
+        <div class="form-group">
+         <label class="control-label">article  </label>
+         <input class="form-control" type="text" name="code_article">
+       </div>
+      
+
+       
+       
+      <button type="submit" class="btn btn-primary">save</button>
+</form>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

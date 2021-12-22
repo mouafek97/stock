@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>ajouter un fournisseur </title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+<div class="container mt-8 ">
+<div class="card">
+<div class="card-header"> update fournisseur </div> 
+<div class="card-body">
+<form     th:action="@{/savefour}" method="post" >
+        <div class="form-group">
+         <label class="control-label">id fournisseur</label>
+         <input class="form-control" type="hidden" name="id" th:value="${fournisseur.id}">
+       </div> 
+   
+       <div class="form-group">
+         <label class="control-label">nom fournisseur</label>
+         <input class="form-control" type="text" name="nomf"  th:value="${fournisseur.nomf}">
+       </div>
+        <div class="form-group">
+         <label class="control-label">adress fournisseur</label>
+         <input class="form-control" type="text" name="adress"  th:value="${fournisseur.adress}">
+       </div>
+        <div class="form-group">
+         <label class="control-label">numero telephone</label>
+         <input class="form-control" type="text" name="numtelephone"  th:value="${fournisseur.numtelephone}">
+       </div>
+        <div class="form-group">
+         <label class="control-label">E-mail</label>
+         <input class="form-control" type="text" name="email"  th:value="${fournisseur.email}">
+       </div>
+     <button type="submit" class="btn btn-primary">save</button>
+</form>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

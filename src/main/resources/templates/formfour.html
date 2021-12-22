@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>ajouter un fournisseur </title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+<div class="container mt-8 ">
+<div class="card">
+<div class="card-header"> listes des produit </div> 
+<div class="card-body">
+<form     th:action="@{/savefour}" method="post" >
+   
+   
+       <div class="form-group">
+         <label class="control-label">nom fournisseur</label>
+         <input class="form-control" type="text" name="nomf">
+       </div>
+        <div class="form-group">
+         <label class="control-label">adress fournisseur</label>
+         <input class="form-control" type="text" name="adress">
+       </div>
+        <div class="form-group">
+         <label class="control-label">numero telephone</label>
+         <input class="form-control" type="text" name="numtelephone">
+       </div>
+        <div class="form-group">
+         <label class="control-label">E-mail</label>
+         <input class="form-control" type="text" name="email">
+       </div>
+     <button type="submit" class="btn btn-primary">save</button>
+</form>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thyme">
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">stock</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+     
+      <a class="nav-item nav-link" href="/Article">Article</a>
+      <a class="nav-item nav-link" href="/listedecommandes">Commande</a>
+       <a class="nav-item nav-link" href="/fournisseurs">fournisseur</a>
+      <a class="nav-item nav-link" href="/categorie">Categorie</a>
+        <a class="nav-item nav-link" href="/logout">logout</a>
+     
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+</header>
+<div class="container mt-5 "> 
+<div class="card">
+
+<div class="card-header"> listes des fournisseur </div> 
+<div class="card-body">
+<form th:action="@{fournisseurs}" method="get">
+<div class="mb-5">
+<label>Mot Cle </label>
+<input type="text" name="motCle" th:value="${motCle}">
+<button class="btn btn-primary">chercher</button>
+<a class="btn btn-primaryr" th:href="@{createfour}">ajouter un fournisseur </a>
+
+</div>
+</form>	
+  <table class="table">
+<tr>
+<th>numero fournisseur</th><th>nom fournisseur</th><th>adress fournisseur</th><th>telephone</th><th>email</th>
+</tr>
+<tr th:each ="f:${pagefourni.content}">
+<td th:text="${f.id}" ></td>
+<td th:text="${f.nomf}" ></td>
+<td th:text="${f.adress}" ></td>
+<td th:text="${f.numtelephone}" ></td>
+<td th:text="${f.email	}" ></td>
+<td><a  class="btn btn-danger" th:href="@{deletefournisseurs(id=${f.id},page=${correntpages},size=${size})}">Delete</a>
+<td> <a class="btn btn-primaryr" th:href="@{updatefour(id=${f.id} )}">update  </a></td> 
+
+</tr>
+</table>
+<ul class="nav nav-pills">
+<li th:each="page,status:${pages}">
+<a th:class="${status.index==correntpages} ? 'btn btn-primary':'btn'"  th:href="@{fournisseurs(page=${status.index},size=${size})}" th:text="${status.index}"></a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</body>
+</html>

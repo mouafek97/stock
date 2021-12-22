@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>ajouter une commande</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+<div class="container mt-8 ">
+<div class="card">
+<div class="card-header">ajouter une commande</div> 
+<div class="card-body">
+<form     th:action="@{/savecoo}" method="post" >
+   
+       
+        <div class="form-group">
+         <label class="control-label">date </label>
+         <input class="form-control" type="datetime-local" name="dateCmd">
+       </div>
+       
+      
+        <div class="form-group">
+         <label class="control-label">etat </label>
+         <input class="form-control" type="text" name="etatCmd">
+       </div>
+      
+          <div class="form-group">
+         <label class="control-label">nom</label>
+         <input class="form-control" type="text" name="nomCmd">
+       </div>
+        <div class="form-group">
+         <label class="control-label">nom fournisseur </label>
+         <input class="form-control" type="text" name="nomfour">
+       </div>
+      
+       
+       
+      <button type="submit" class="btn btn-primary">save</button>
+</form>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

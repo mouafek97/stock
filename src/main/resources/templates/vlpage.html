@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thyme">
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5 "> 
+<div class="card">
+<div class="card-header"> listes des commandes </div> 
+<div class="card-body">
+<a class="btn btn-primaryr" th:href="@{createligne}">ajouter une ligne  </a>
+ <table class="table">
+<tr>
+<th>indexCmd</th><th>qteCmd</th><th>prixCmd</th><th>montantCmd</th>
+</tr>
+<tr th:each ="c:${pageli.content}">
+<td th:text="${c.indexCmd}" ></td>
+<td th:text="${c.qteCmd}" ></td>
+<td th:text="${c.prixCmd }" ></td>
+<td th:text="${c.montantCmd }" ></td>
+<td><a  class="btn btn-danger" th:href="@{supli(id=${c.indexCmd},page=${correntpages},size=${size})}">Delete</a>
+
+ </tr>
+</table>
+<ul class="nav nav-pills">
+<li th:each="page,status:${pages}">
+<a th:class="${status.index==correntpages} ? 'btn btn-primary':'btn'"  th:href="@{voir(page=${status.index},size=${size})}" th:text="${status.index}"></a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</body>
+</html>

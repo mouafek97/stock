@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>ajouter article</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+<div class="container mt-8 ">
+<div class="card">
+<div class="card-header"> listes des produit </div> 
+<div class="card-body">
+<form     th:action="@{/saveart}" method="post" >
+   
+   
+       <div class="form-group">
+         <label class="control-label">designation</label>
+         <input class="form-control" type="text" name="designation">
+       </div>
+        <div class="form-group">
+         <label class="control-label">unite</label>
+         <input class="form-control" type="text" name="unite">
+       </div>
+        <div class="form-group">
+         <label class="control-label">quantite en stock</label>
+         <input class="form-control" type="text" name="qteArt">
+       </div>
+        <div class="form-group">
+         <label class="control-label">prix article</label>
+         <input class="form-control" type="text" name="prixArt">
+       </div>
+         <div class="form-group">
+         <label class="control-label">categorie</label>
+         <input class="form-control" type="text" name="catn">
+       </div>
+       
+       
+       
+      <button type="submit" class="btn btn-primary">save</button>
+</form>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>gestione</title>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">stock</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+     
+      <a class="nav-item nav-link" href="/Article">Article</a>
+      <a class="nav-item nav-link" href="/listedecommandes">Commande</a>
+       <a class="nav-item nav-link" href="/fournisseurs">fournisseur</a>
+      <a class="nav-item nav-link" href="/categorie">Categorie</a>
+      <a class="nav-item nav-link" href="/logout">logout</a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+</header>
+<div class="container mt-5 ">
+<div class="card">
+<div class="card-header"> listes des produit </div> 
+<div class="card-body">
+<form th:action="@{Article}" method="get">
+<div>
+<label>Mot Cle </label>
+<input type="text" name="motCle" th:value="${motCle}">
+<button class="btn btn-primary">chercher</button>
+<a class="btn btn-primaryr" th:href="@{createArticle}">ajouter un article  </a>
+</div>
+</form>
+<table class="table">
+<tr>
+<th>article code</th><th>designation</th><th>unite</th><th>quatite</th><th>prix</th><th>nom categorie</th>
+</tr>
+<tr th:each ="p:${pageproduits}" >
+<td th:text="${p.artCode}" ></td>
+<td th:text="${p.designation}" ></td>
+<td th:text="${p.unite}" ></td>
+<td th:text="${p.qteArt}" ></td>
+<td th:text="${p.prixArt}" ></td>
+<td th:text="${p.catn}" ></td>
+<td> <a class="btn btn-danger" th:href="@{deleteArticle(id=${p.artCode} , page=${correntpages} , size=${size} , motCle=${motCle})}">delete  </a></td> 
+<td> <a class="btn btn-primaryr" th:href="@{updateArticle(id=${p.artCode})}">update  </a></td> 
+</tr>
+</table>
+<ul class="nav nav-pills">
+<li th:each="page,status:${pages}">
+<a th:class="${status.index==correntpages} ? 'btn btn-primary':'btn'"  th:href="@{Article(page=${status.index},size=${size})}" th:text="${status.index}"></a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</body>
+</html>
